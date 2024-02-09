@@ -20,7 +20,7 @@ class BookController extends Controller
         $objectModel->disponibilité = $request->disponibilité;
         $objectModel->save();
 
-        Livres::create($request->all());
+        // Livres::create($request->all());
         return redirect()->route('/')
         ->with('success', 'Book created successfully.');
     }

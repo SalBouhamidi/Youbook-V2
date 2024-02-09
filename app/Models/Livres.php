@@ -16,5 +16,18 @@ class Livres extends Model
         'edition',
         'disponibilité',
         'description',
+        'created_at',
+        'updated_at',
     ];
+
+    protected $fillablepivot =[];
+
+    public function users()
+    {
+        return $this->hasMany(User::class,'livres_id', 'id');
+    }
+
+
+
+
 }

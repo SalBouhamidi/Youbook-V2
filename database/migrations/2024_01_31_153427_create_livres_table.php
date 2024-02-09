@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('livres', function (Blueprint $table) {
+        Schema::create('livres', function (Blueprint $table){
+            $table->engine = "InnoDB";
             $table->increments('id');
             $table->string('nom');
             $table->string('auteur');

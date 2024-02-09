@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('livreemprunte', function (Blueprint $table) {
-            $table->integer('id_livre');
-            $table->integer('id_user');
+        Schema::create('roles', function (Blueprint $table){
+        $table->engine = "InnoDB"; 
+        $table->increments('id');
+        $table->string('role_type');
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('livreemprunte');
+        Schema::dropIfExists('roles');
     }
 };

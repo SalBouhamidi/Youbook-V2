@@ -20,6 +20,10 @@
         <a class="nav-link active fw-semibold text-light me-5" aria-current="page" href="/">Home</a>
         <a class="nav-link fw-semibold text-light me-5" href="#">books available</a>
         <a class="nav-link fw-semibold text-light me-5 " href="#">about us</a>
+
+        <a href="{{route('login')}}" class="btn btn-primary me-3 px-4">login</a>
+        <a href="{{route('register')}}" class="btn btn-primary">Register</a>
+
       </div>
     </div>
   </div>
