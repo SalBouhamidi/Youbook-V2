@@ -2,7 +2,7 @@
 @section('content')
 
 
-<form class="container-fluid w-50 mt-5" method="post" action="{{route('createaccount')}}">
+<form class="container-fluid w-50 mt-5" method="post" action="{{route('userlogin')}}">
     @csrf
     @method('POST')
     <label for="exampleInputEmail1" class="form-label">Email address</label>

@@ -24,29 +24,26 @@ use App\Http\Controllers\LoginController;
 
 
 Route::get('/', [BookController::class, 'showBooks'])->name('/');
-
 Route::post('/', [BookController::class, 'addBooks'])->name('create');
-
 Route::put('/update/{id}', [BookController::class, 'updateBook'])->name('update');
-
 Route::delete('/delete/{id}',[BookController::class, 'deleteBook'])->name('delete.book');
 
+
+
 Route::post('/ReserveBook/{id}', [ReservationController::class, 'store'])->name('reserve.book');
-
-
-
 
 Route::get('/register',[RegisterController:: class, 'index'])->name('register');
 Route::post('/register',[RegisterController:: class, 'store'])->name('createaccount');
 
 Route::get('/login',[LoginController:: class, 'index'])->name('login');
+Route::post('/login',[LoginController:: class, 'store'])->name('userlogin');
 
 
 
+Route::get('/studentpage', [BookController::class, 'studentpage'])->name('studentpage');
+Route::get('/studentpage', [BookController::class, 'showBooksforstudent'])->name('studentpage');
 
 
-
-Route::get('/login',[LoginController:: class, 'index'])->name('login');
 
 
 

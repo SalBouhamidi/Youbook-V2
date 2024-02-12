@@ -71,7 +71,6 @@
                 @method('DELETE')
                   <button  class="btn btn-danger me-2">Delete</button>
               </form>
-s
               <button type="button" class="btn btn-success fw-bold text-light px-4" data-bs-toggle="modal" data-bs-target="#exampleModal{{$book->id}}">
                    Edit
               </button>

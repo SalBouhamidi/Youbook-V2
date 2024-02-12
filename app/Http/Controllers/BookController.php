@@ -10,6 +10,10 @@ class BookController extends Controller
     public function index(){
         return view('home');
     }
+
+    public function studentpage(){
+        return view('studentpage');
+    }
     public function addBooks(Request $request){
 
         $objectModel= new Livres();
@@ -30,6 +34,11 @@ class BookController extends Controller
         $books= livres::all();
         return view('home', compact(['books']));
 
+    }
+
+    public function showBooksforstudent(){
+        $books= livres::all();
+        return view('studentpage', compact(['books']));
     }
 
     public function deleteBook($id){

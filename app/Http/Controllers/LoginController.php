@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -14,20 +15,27 @@ class LoginController extends Controller
         return view('login');   
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $authinfo = $request->only('email', 'password');
+        // dd($authinfo);
+
+
+        if(Auth::attempt($authinfo, true)){
+            // dd($authinfo);
+            $request->session()->regenerate();
+            if (Auth::user()->role_id == '1'){
+                return  redirect()->route('/')
+                ->with('success', 'Login passed successfully');
+            }elseif(Auth::user()->role_id == '2'){
+                return redirect()->route('studentpage')
+                ->with('success', 'Login passed successfully');
+                // intended('studentpage');
+            }
+
+        }else{
+            return  redirect()->route('login');
+        }
     }
 
     /**
