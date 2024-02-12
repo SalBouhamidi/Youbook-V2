@@ -22,10 +22,19 @@ class Livres extends Model
 
     protected $fillablepivot =[];
 
+
+
+
+    public function Bookreserves()
+    {
+        return $this->hasMany(Bookreserves::class,'user_id', 'id');
+    }
+
     public function users()
     {
         return $this->hasMany(User::class,'livres_id', 'id');
     }
+
 
 
 

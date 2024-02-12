@@ -38,10 +38,12 @@ Route::post('/register',[RegisterController:: class, 'store'])->name('createacco
 Route::get('/login',[LoginController:: class, 'index'])->name('login');
 Route::post('/login',[LoginController:: class, 'store'])->name('userlogin');
 
-
+Route::get('/logout',[LoginController:: class, 'logout'])->name('logout');
 
 Route::get('/studentpage', [BookController::class, 'studentpage'])->name('studentpage');
 Route::get('/studentpage', [BookController::class, 'showBooksforstudent'])->name('studentpage');
+
+Route::get('/reservedbooks', [ReservationController::class, 'showmybooks'])->name('mybooks');
 
 
 

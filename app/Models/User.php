@@ -46,6 +46,13 @@ class User extends Authenticatable
 
     protected $fillablepivot =[];
 
+    public function Bookreserves()
+    {
+        return $this->hasMany(Bookreserves::class,'livres_id', 'id');
+    }
+
+
+
     public function Livres()
     {
         return $this->hasMany(Livres::class,'user_id', 'id');

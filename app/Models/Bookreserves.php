@@ -13,6 +13,9 @@ class Bookreserves extends Model
     protected $fillablepivot =[
         'user_id',
         'livres_id',
+        'start_date',
+        'end_date',
+        'id'
     ];
 
 public function users()

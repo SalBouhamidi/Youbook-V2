@@ -23,7 +23,17 @@ class LoginController extends Controller
 
         if(Auth::attempt($authinfo, true)){
             // dd($authinfo);
+            $user=Auth::user();
             $request->session()->regenerate();
+            session(['user_id' => $user->id,
+                     'role_id'=>$user->role_id
+        ]);
+
+            // $request->session()->put('user_id', '$user->id');
+
+
+
+
             if (Auth::user()->role_id == '1'){
                 return  redirect()->route('/')
                 ->with('success', 'Login passed successfully');
@@ -38,35 +48,9 @@ class LoginController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+   public function logout(Request $request){
+        $request->session()->flush();
+        return redirect()->route('login');
+   }
+    
 }

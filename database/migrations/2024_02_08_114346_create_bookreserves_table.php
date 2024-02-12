@@ -12,13 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bookreserves', function (Blueprint $table) {
-            $table->timestamps();
-            $table->engine = "InnoDB"; 
+            // $table->timestamps();
+            $table->engine = "InnoDB";
+            $table->increments('id'); 
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->integer('livres_id')->unsigned();
             $table->foreign('livres_id')->references('id')->on('livres')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            
+            $table->date('start_date');
+            $table->date('end_date');
+
         });
     }
 
